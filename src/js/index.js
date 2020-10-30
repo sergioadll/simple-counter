@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { Counter } from "./component/counter.js";
 import "bootstrap";
 import "../styles/index.scss";
-//import { Counter } from "./component/counter.js";
 
 let forward = true;
 let pause = false;
@@ -56,7 +55,6 @@ let reloj = setInterval(function() {
 			<div
 				className="pointer button bg-light"
 				onClick={() => {
-					//alert("OK");
 					counter = 0;
 					seconds = warningTime;
 				}}>
@@ -106,22 +104,4 @@ let reloj = setInterval(function() {
 	);
 }, 1000);
 
-/* STOP AND RESUME FUCTIONS MISSING RESUME TO WORK
-			<div
-				className="pointer button bg-light"
-				onClick={() => {
-					//alert("OK");
-					clearInterval(reloj);
-				}}>
-				Stop Time
-			</div>
 
-			<div
-				className="pointer button bg-dark"
-				onClick={() => {
-					//alert("OK");
-					setInterval(reloj);
-				}}>
-				Resume Time
-			</div>
-*/
