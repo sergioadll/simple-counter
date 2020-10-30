@@ -6,6 +6,7 @@ import "../styles/index.scss";
 //import { Counter } from "./component/counter.js";
 
 let forward = true;
+let pause = false;
 let seconds = 200;
 let counter = 0;
 let warningTime = null;
@@ -22,16 +23,36 @@ let reloj = setInterval(function() {
 	timer[1] = Math.floor(seconds / 10) % 10;
 	timer[2] = Math.floor(seconds / 100) % 10;
 	timer[3] = Math.floor(seconds / 1000) % 10;
-	seconds--;
 	let value = [];
 	value[0] = Math.floor(counter) % 10;
 	value[1] = Math.floor(counter / 10) % 10;
 	value[2] = Math.floor(counter / 100) % 10;
 	value[3] = Math.floor(counter / 1000) % 10;
-	counter++;
+	if (!pause) {
+		counter++;
+		seconds--;
+	}
 
 	ReactDOM.render(
 		<div>
+			<div
+				className="pointer button bg-success"
+				onClick={() => {
+					pause = !pause;
+				}}>
+				{!pause && (
+					<span>
+						<b>Play</b>
+						/Paused
+					</span>
+				)}
+				{pause && (
+					<span>
+						Play/
+						<b>Paused</b>
+					</span>
+				)}
+			</div>{" "}
 			<div
 				className="pointer button bg-light"
 				onClick={() => {
@@ -46,7 +67,7 @@ let reloj = setInterval(function() {
 				onClick={() => {
 					forward = !forward;
 					counter = 0;
-					seconds = 200;
+					seconds = -1;
 				}}>
 				{forward && (
 					<span>
