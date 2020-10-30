@@ -9,7 +9,16 @@ import "bootstrap";
 import "../styles/index.scss";
 
 //import your own components
-import { Home } from "./component/home.js";
+import { Counter } from "./component/counter.js";
 
 //render your react application
-ReactDOM.render(<Home />, document.querySelector("#app"));
+let counter = 0;
+setInterval(function() {
+	let value = [];
+	value[0] = Math.floor(counter) % 10;
+	value[1] = Math.floor(counter / 10) % 10;
+	value[2] = Math.floor(counter / 100) % 10;
+	value[3] = Math.floor(counter / 1000) % 10;
+	counter++;
+	ReactDOM.render(<Counter value={value} />, document.querySelector("#app"));
+}, 1000);
