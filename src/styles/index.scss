@@ -3,7 +3,7 @@ body{background: #202020}
 .outter-box{
     display: flex;
     justify-content: center;
-    padding-top: 10rem;
+    padding-top: 9rem;
 }
 .card{
     width: 10rem;
@@ -13,4 +13,11 @@ body{background: #202020}
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.pointer{
+    cursor: pointer;
+    height: 2rem;
+    padding: 0.1rem;
+    display: flex;
+    align-content: center;
 }
